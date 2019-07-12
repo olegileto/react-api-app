@@ -3,13 +3,16 @@ import React, {Component} from 'react';
 import SwapiServices from '../../services/SwapiService';
 
 import './RandomPlanet.css';
+import Spinner from "../Spinner/Spinner";
+import RandomPlanetView from "./RandomPlanetView";
 
 export default class RandomPlanet extends Component {
 
     swapiServices = new SwapiServices();
 
     state = {
-        planet: {}
+        planet: {},
+        loading: true
     };
 
     constructor(props) {
@@ -19,7 +22,10 @@ export default class RandomPlanet extends Component {
     }
 
     omPlanetLoaded = (planet) => {
-        this.setState({planet})
+        this.setState({
+            planet,
+            loading: false
+        })
     };
 
     updatePlanet() {
@@ -31,29 +37,14 @@ export default class RandomPlanet extends Component {
     }
 
     render() {
-        const {planet: {id, name, population, rotationPeriod, diameter}} = this.state;
+        const {planet, loading} = this.state;
+        const spinner = loading ? <Spinner /> : null;
+        const content = !loading ? <RandomPlanetView planet={planet}/> : null;
 
         return (
             <div className='RandomPlanet jumbotron rounded'>
-                <img className='planet-image' src={`https://starwars-visualguide.com//assets/img/planets/${id}.jpg`}/>
-
-                <div>
-                    <h4>{name}</h4>
-                    <ul className='list-group list-group-flush'>
-                        <li className='list-group-item'>
-                            <span className='term'>Population </span>
-                            <span>{population}</span>
-                        </li>
-                        <li className='list-group-item'>
-                            <span className='term'>Rotation Period </span>
-                            <span>{rotationPeriod}</span>
-                        </li>
-                        <li className='list-group-item'>
-                            <span className='term'>Diameter </span>
-                            <span>{diameter}</span>
-                        </li>
-                    </ul>
-                </div>
+                {spinner}
+                {content}
             </div>
         )
     }
