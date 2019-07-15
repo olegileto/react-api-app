@@ -45,7 +45,7 @@ export default class ItemList extends Component {
         }
 
         return (
-            <ul className='item-list list-group'>
+            <ul className='ItemList list-group'>
                 {items}
             </ul>
         )

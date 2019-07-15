@@ -1,0 +1,12 @@
+.ItemList {
+    border-radius: 8px;
+}
+
+.ItemList li:hover {
+    background-color: #6f6f6f;
+    cursor: pointer;
+}
+
+.ItemList li:active {
+    background-color: #949494;
+}

@@ -1,0 +1,14 @@
+.PersonDetails {
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 8px;
+}
+
+.person-image {
+    width: 58%;
+}
+
+.flex-block {
+    text-align: center;
+    width: 50%
+}

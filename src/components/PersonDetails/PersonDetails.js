@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 
 import './PersonDetails.css';
 import SwapiService from "../../services/SwapiService";
-import Spinner from "../Spinner/Spinner";
 
 export default class PersonDetails extends Component {
 
@@ -17,7 +16,7 @@ export default class PersonDetails extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if(this.props.personId !== prevProps.personId) {
+        if (this.props.personId !== prevProps.personId) {
             this.updatePerson();
         }
     }
@@ -32,7 +31,9 @@ export default class PersonDetails extends Component {
         this.swapiService
             .getPerson(personId)
             .then((person) => {
-                this.setState({person})
+                this.setState({
+                    person
+                })
             })
     }
 
@@ -43,16 +44,14 @@ export default class PersonDetails extends Component {
 
         const {id, name, gender, birthYear, eyeColor} = this.state.person;
 
-        if(!this.state.person) {
-            return <Spinner/>
-        }
-
         return (
-            <div className='PersonDetails card'>
-                <img className='person-image' src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
-                     alt="Image"/>
+            <div className='PersonDetails jumbotron'>
+                <div className='person-image'><img className='person-image'
+                                                   src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
+                                                   alt="Image"/></div>
 
-                <div className='card-body'>
+
+                <div className='card-body flex-block'>
                     <h4>{name}</h4>
                     <ul className='list-group list-group-flush'>
                         <li className='list-group-item'>

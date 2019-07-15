@@ -10,7 +10,7 @@ import './App.css';
 export default class App extends Component {
 
     state = {
-        selectedPerson: 5
+        selectedPerson: null
     };
 
     onSelectedItem = (id) => {
@@ -25,12 +25,12 @@ export default class App extends Component {
                 <AppHeader/>
                 <RandomPlanet/>
 
-                <div className='row mb2'>
-                    <div className='col-md-6'>
+                <div className='flex-container'>
+                    <div className='flex-item item-list'>
                         <ItemList onSelectedItem={this.onSelectedItem}/>
                     </div>
 
-                    <div className="col-md-6">
+                    <div className="flex-item person-details">
                         <PersonDetails personId={this.state.selectedPerson}/>
                     </div>
                 </div>

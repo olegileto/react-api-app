@@ -1,0 +1,17 @@
+.App {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.item-list {
+    width: 30%;
+}
+
+.person-details {
+    width: 65%;
+}

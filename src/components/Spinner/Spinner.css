@@ -160,3 +160,7 @@
     -webkit-transform: translate(-82.5px, -82.5px) scale(0.825) translate(82.5px, 82.5px);
     transform: translate(-82.5px, -82.5px) scale(0.825) translate(82.5px, 82.5px);
 }
+
+.ng-scope {
+    margin: 0 auto;
+}
