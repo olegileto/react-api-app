@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import SwapiService from "../../services/SwapiService";
 import ItemList from "../ItemList/ItemList";
 import StarshipDetails from "../StarshipDetails/StarshipDetails";
+import Row from "../common/Row";
 
 export default class StarshipPage extends Component {
 
@@ -25,17 +26,13 @@ export default class StarshipPage extends Component {
                 renderItem={({name, model, length}) => `${name} (${model}, ${length})`}
             />);
 
+        const starshipDetails = (
+            <StarshipDetails starshipId={this.state.selectedStarship}/>
+        );
+
         return (
             <div className='StarshipPage'>
-                <div className='flex-container'>
-                    <div className='flex-item item-list'>
-                        {itemList}
-                    </div>
-
-                    <div className="flex-item person-details">
-                        <StarshipDetails starshipId={this.state.selectedStarship}/>
-                    </div>
-                </div>
+                <Row left={itemList} right={starshipDetails}/>
             </div>
         )
     }
