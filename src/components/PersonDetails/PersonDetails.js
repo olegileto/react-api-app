@@ -46,10 +46,11 @@ export default class PersonDetails extends Component {
 
         return (
             <div className='PersonDetails jumbotron'>
-                <div className='person-image'><img className='person-image'
-                                                   src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
-                                                   alt="Image"/></div>
-
+                <div className='person-image'>
+                    <img className='person-image'
+                         src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
+                         alt="Image"/>
+                </div>
 
                 <div className='card-body flex-block'>
                     <h4>{name}</h4>

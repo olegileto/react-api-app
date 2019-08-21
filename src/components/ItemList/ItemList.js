@@ -3,44 +3,46 @@ import React, {Component} from 'react';
 import Spinner from "../Spinner/Spinner";
 
 import './ItemList.css';
-import SwapiService from '../../services/SwapiService';
 
 export default class ItemList extends Component {
 
-    swapiService = new SwapiService();
-
     state = {
-        peopleList: []
+        itemList: []
     };
 
     componentDidMount() {
-        this.swapiService
-            .getAllPeople()
-            .then((peopleList) => {
+
+        const {getData} = this.props;
+
+        getData()
+            .then((itemList) => {
                 this.setState({
-                    peopleList
+                    itemList
                 })
             })
     };
 
     renderItems(arr) {
-        return arr.map(({id, name}) => {
+        return arr.map((item) => {
+            const {id} = item;
+            const label = this.props.renderItem(item);
+
             return (
                 <li key={id}
                     className='list-group-item'
                     onClick={() => this.props.onSelectedItem(id)}>
-                    {name}
+                    {label}
                 </li>
             )
         })
     }
 
     render() {
-        const {peopleList} = this.state;
+        const {itemList} = this.state;
 
-        const items = this.renderItems(peopleList);
+        const items = this.renderItems(itemList);
 
-        if (!peopleList) {
+        if (!itemList) {
             return <Spinner/>
         }
 

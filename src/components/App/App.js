@@ -1,22 +1,19 @@
 import React, {Component} from 'react';
 
 import AppHeader from '../AppHeader/AppHeader';
-import ItemList from '../ItemList/ItemList';
-import PersonDetails from '../PersonDetails/PersonDetails'
+import PeoplePage from '../Pages/PeoplePage';
 import RandomPlanet from '../RandomPlanet/RandomPlanet'
+import PlanetPage from "../Pages/PlanetPage";
+import StarshipPage from "../Pages/StarshipPage";
 
 import './App.css';
 
 export default class App extends Component {
 
     state = {
-        selectedPerson: null
-    };
-
-    onSelectedItem = (id) => {
-        this.setState({
-            selectedPerson: id
-        })
+        selectedPerson: null,
+        selectedPlanet: null,
+        selectedStarship: null
     };
 
     render() {
@@ -25,15 +22,9 @@ export default class App extends Component {
                 <AppHeader/>
                 <RandomPlanet/>
 
-                <div className='flex-container'>
-                    <div className='flex-item item-list'>
-                        <ItemList onSelectedItem={this.onSelectedItem}/>
-                    </div>
-
-                    <div className="flex-item person-details">
-                        <PersonDetails personId={this.state.selectedPerson}/>
-                    </div>
-                </div>
+                <PeoplePage/>
+                <PlanetPage/>
+                <StarshipPage/>
             </div>
         )
 
