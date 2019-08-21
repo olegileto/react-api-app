@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 
 import ItemList from "../ItemList/ItemList";
-import PersonDetails from '../PersonDetails/PersonDetails';
+import ItemDetails from '../PersonDetails/ItemDetails';
 import SwapiService from "../../services/SwapiService";
 import Row from '../common/Row';
 
-export default class PeoplePage extends Component {
+export default class ItemPage extends Component {
 
     swapiService = new SwapiService();
 
@@ -29,7 +29,7 @@ export default class PeoplePage extends Component {
         );
 
         const personDetails  = (
-            <PersonDetails personId={this.state.selectedPerson}/>
+            <ItemDetails personId={this.state.selectedPerson}/>
         );
 
         return (
