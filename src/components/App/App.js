@@ -3,7 +3,9 @@ import React, {Component} from 'react';
 import AppHeader from '../AppHeader/AppHeader';
 import RandomPlanet from '../RandomPlanet/RandomPlanet'
 import {PersonList, PlanetList, StarshipList} from "../sw-components/item-list";
-import {PersonDetails, PlanetDetails, StarshipDetails} from '../sw-components/details';
+import PersonDetails from '../sw-components/PersonDetails';
+import PlanetDetails from '../sw-components/PlanetDetails';
+import StarshipDetails from '../sw-components/StarshipDetails';
 import {SwapiServiceProvider} from '../swapi-service-context/swapi-service-context';
 import SwapiService from '../../services/SwapiService';
 
