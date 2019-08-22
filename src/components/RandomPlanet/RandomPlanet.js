@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import SwapiServices from '../../services/SwapiService';
+import SwapiService from '../../services/SwapiService';
 
 import './RandomPlanet.css';
 import Spinner from "../Spinner/Spinner";
@@ -9,7 +9,7 @@ import ErrorIndicator from '../ErrorIndicator/ErrorIndicator';
 
 export default class RandomPlanet extends Component {
 
-    swapiServices = new SwapiServices();
+    swapiService = new SwapiService();
 
     state = {
         planet: {},
@@ -43,7 +43,7 @@ export default class RandomPlanet extends Component {
     updatePlanet = () => {
         const id = Math.floor(Math.random() * 10) + 2;
 
-        this.swapiServices
+        this.swapiService
             .getPlanet(id)
             .then(this.omPlanetLoaded)
             .catch(this.onError)
