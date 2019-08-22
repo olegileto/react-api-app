@@ -4,10 +4,14 @@ import AppHeader from '../AppHeader/AppHeader';
 import RandomPlanet from '../RandomPlanet/RandomPlanet'
 import {PersonList, PlanetList, StarshipList} from "../sw-components/item-list";
 import {PersonDetails, PlanetDetails, StarshipDetails} from '../sw-components/details';
+import {SwapiServiceProvider} from '../swapi-service-context/swapi-service-context';
+import SwapiService from '../../services/SwapiService';
 
 import './App.css';
 
 export default class App extends Component {
+
+    swapiService = new SwapiService();
 
     state = {
         selectedPerson: null,
@@ -17,18 +21,21 @@ export default class App extends Component {
 
     render() {
         return (
-            <div className='App'>
-                <AppHeader/>
-                <RandomPlanet/>
+            //Context for Swapi Service API
+            <SwapiServiceProvider value={this.swapiService}>
+                <div className='App'>
+                    <AppHeader/>
+                    <RandomPlanet/>
 
-                <PersonDetails itemId={11}/>
-                <PlanetDetails itemId={5}/>
-                <StarshipDetails itemId={10}/>
+                    <PersonDetails itemId={11}/>
+                    <PlanetDetails itemId={5}/>
+                    <StarshipDetails itemId={10}/>
 
-                <PersonList/>
-                <PlanetList/>
-                <StarshipList/>
-            </div>
+                    <PersonList/>
+                    <PlanetList/>
+                    <StarshipList/>
+                </div>
+            </SwapiServiceProvider>
         )
 
     }
