@@ -7,6 +7,7 @@ import SwapiService from "../../services/SwapiService";
 
 import './App.css';
 import Row from "../common/Row";
+import ItemPage from "../ItemPage/ItemPage";
 
 export default class App extends Component {
 
