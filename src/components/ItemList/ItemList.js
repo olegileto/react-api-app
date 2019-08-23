@@ -2,12 +2,10 @@ import React from 'react';
 
 import './ItemList.css';
 
-const ItemList = (props) => {
-
-    const {data, onSelectedItem, children: renderLabel} = props;
+const ItemList = ({data, onSelectedItem, children: renderLabel}) => {
 
     const items = data.map((item) => {
-        const {id} = data;
+        const {id} = item;
         const label = renderLabel(item);
 
         return (
