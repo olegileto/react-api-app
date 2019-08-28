@@ -7,7 +7,8 @@ const RandomPlanetView = ({planet}) => {
         <React.Fragment>
             <div className='image-around'>
                 <img className='planet-image'
-                     src={`https://starwars-visualguide.com//assets/img/planets/${id}.jpg`}/>
+                     src={`https://starwars-visualguide.com//assets/img/planets/${id}.jpg`}
+                alt='Something'/>
             </div>
 
 

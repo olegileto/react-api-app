@@ -58,7 +58,7 @@ export default class ItemDetails extends Component {
                 <div className='person-image'>
                     <img className='person-image'
                          src={image}
-                         alt="Image"/>
+                         alt="Something"/>
                 </div>
 
                 <div className='card-body flex-block'>
